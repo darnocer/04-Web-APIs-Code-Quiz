@@ -1,0 +1,16 @@
+body {
+  font-family: "Quicksand", sans-serif;
+}
+
+#feedback-text {
+  font-style: italic;
+  font-weight: bolder;
+  margin-top: 30px;
+}
+
+#countdown {
+  padding-right: 40px;
+}
+#greeting {
+  font-size: 3em;
+}

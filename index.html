@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Quiz</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <link href="Assets/css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!----------------------------------NAVBAR WITH HIGHSCORES LINK AND TIMER-------------------------------->
+    <nav class="navbar bg-dark">
+      <button class="text-light mb-0 btn" id="highscores-link">
+        View Highscores
+      </button>
+      <div class="text-light" id="timer">
+        Time: <span id="countdown"></span>
+      </div>
+    </nav>
+
+    <!----------------------------------WELCOME, INSTRUCTIONS, AND START QUIZ-------------------------------->
+    <div
+      class="container p-4 mt-5 mx-auto"
+      id="start-quiz"
+      style="max-width: 700px;"
+    >
+      <div class="row m-2">
+        <div class="col text-center">
+          <h1 id="greeting">Welcome to da quiz!</h1>
+        </div>
+      </div>
+
+      <div class="row m-2">
+        <div class="col text-center">
+          <p id="intro">Let's do this</p>
+        </div>
+      </div>
+      <div class="row m-2">
+        <div class="col text-center">
+          <button type="button" class="btn btn-dark" id="start-button">
+            Start
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!----------------------------------QUESTIONS AND CHOICES-------------------------------->
+    <div class="container p-4 mt-5 mx-auto d-none" id="quiz-questions">
+      <div class="row">
+        <div class="col-md">
+          <h1 class="text-center" id="question-text"></h1>
+          <div class="row">
+            <div class="col-md">
+              <div
+                class="text-center mt-5 d-flex flex-column"
+                id="question-choices"
+              >
+                <button class="choice btn btn-dark m-2" id="a"></button>
+                <button class="choice btn btn-dark m-2" id="b"></button>
+                <button class="choice btn btn-dark m-2" id="c"></button>
+                <button class="choice btn btn-dark m-2" id="d"></button>
+              </div>
+              <div class="text-center" id="feedback-text"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!----------------------------------FINAL SCORE AND STORE INITIALS IN HIGH SCORES-------------------------------->
+    <div class="container d-none p-4 mt-5 mx-auto" id="complete">
+      <div class="row">
+        <div class="col-md text-center">
+          <h1 class="text-center">All Done!</h1>
+          <h2 class="text-center">
+            Your final score is:
+            <p id="final-score"></p>
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md text-center">
+          <label for="initials">Enter initials:</label>
+          <input type="text" id="initials" />
+          <!-- <a href="highscores.html"> -->
+          <button class="btn btn-danger" id="submit-score">
+            Submit
+          </button>
+          <!-- </a> -->
+        </div>
+      </div>
+    </div>
+
+    <!------------------------------------------JAVASCRIPT--------------------------------------------------->
+    <script src="Assets/js/script.js"></script>
+    <script src="Assets/js/questions.js"></script>
+    <!-- <script src="Assets/js/highscores.js"></script> -->
+  </body>
+</html>

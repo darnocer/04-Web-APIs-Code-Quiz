@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Quiz</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <link href="Assets/css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!----------------------------------NAVBAR WITH HIGHSCORES LINK AND TIMER-------------------------------->
+    <nav class="navbar bg-dark">
+      <button class="text-light mb-0 btn" id="highscores-link">
+        View Highscores
+      </button>
+      <div class="text-light" id="timer">
+        Time: <span id="countdown"></span>
+      </div>
+    </nav>
+
+    <div class="container p-4 mt-5 mx-auto">
+      <div class="row">
+        <div class="col-md">
+          <h1 class="text-center">High Scores</h1>
+          <div id="highscores-list"></div>
+
+          <div class="row text-center">
+            <div class="col-md">
+              <a href="index.html">
+                <button class="btn btn-success" id="repeat-quiz">
+                  Take Quiz Again
+                </button></a
+              >
+              <button id="clear" class="btn btn-danger">
+                Clear High Scores
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!------------------------------------------JAVASCRIPT--------------------------------------------------->
+    <script src="Assets/js/script.js"></script>
+    <script src="Assets/js/questions.js"></script>
+    <!-- <script src="Assets/js/highscores.js"></script> -->
+  </body>
+</html>
