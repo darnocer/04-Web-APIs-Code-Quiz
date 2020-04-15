@@ -5,44 +5,38 @@ var repeatQuizBtn = document.querySelector("#repeat-quiz");
 // high scores list element
 var highScoreListEl = document.querySelector("#highscores-list");
 
+var allHighScores;
+
 function renderHighScores() {
+  // clear existing HTML and re-render
   highScoreListEl.innerHTML = "";
   console.log("rendering high scores");
-  var allHighScores = localStorage.getItem("storedHighScore");
 
-  allHighScores = JSON.parse(allHighScores);
+  // retrieve all user scores from local storage
+  allHighScores = JSON.parse(localStorage.getItem("storedScoreKey"));
   console.log("Stored Scores: " + allHighScores);
 
-  var highScoreList = document.createElement("ol");
-
+  // create an alert div for each user score stored in local storage
   for (var i = 0; i < allHighScores.length; i++) {
-    var scoreListItem = document.createElement("li");
-    scoreListItem.setAttribute("class", "list-group-item text-center");
-
-    scoreListItem.innerHTML =
+    var highscoreItem = document.createElement("div");
+    highscoreItem.setAttribute("class", "alert alert-dark text-center");
+    highscoreItem.innerHTML =
       allHighScores[i].initials + " | " + allHighScores[i].score;
 
-    highScoreList.appendChild(scoreListItem);
+    highScoreListEl.appendChild(highscoreItem);
   }
-  highScoreListEl.appendChild(highScoreList);
+
   return;
 }
 
+// remove all stored user scores
 function clearScores() {
-  localStorage.removeItem("storedHighScore");
+  localStorage.removeItem("storedScoreKey");
   renderHighScores();
 }
 
-// if (repeatQuizBtn) {
-//   repeatQuizBtn.addEventListener("click", init);
-// }
-
-// if (clearHighscoresBtn) {
-//   clearHighscoresBtn.addEventListener("click", clearScores);
-// }
-
 window.onload = function () {
-  //   repeatQuizBtn.addEventListener("click", init);
-  clearHighscoresBtn.addEventListener("click", clearScores);
+  // continuation of saveScores, only render once highscores.html is loaded
   renderHighScores();
+  clearHighscoresBtn.addEventListener("click", clearScores);
 };

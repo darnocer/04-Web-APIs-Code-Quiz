@@ -22,12 +22,11 @@
   <body>
     <!----------------------------------NAVBAR WITH HIGHSCORES LINK AND TIMER-------------------------------->
     <nav class="navbar bg-dark">
-      <button class="text-light mb-0 btn" id="highscores-link">
-        View Highscores
-      </button>
-      <div class="text-light" id="timer">
-        Time: <span id="countdown"></span>
-      </div>
+      <form action="highscores.html">
+        <button class="text-light mb-0 btn" id="highscores-link">
+          View Highscores
+        </button>
+      </form>
     </nav>
 
     <div class="container p-4 mt-5 mx-auto">
@@ -40,7 +39,7 @@
             <div class="col-md">
               <a href="index.html">
                 <button class="btn btn-success" id="repeat-quiz">
-                  Take Quiz Again
+                  Go Back to Start
                 </button></a
               >
               <button id="clear-button" class="btn btn-danger">

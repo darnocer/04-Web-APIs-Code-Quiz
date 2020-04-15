@@ -4,7 +4,7 @@
 var countdownEl = document.querySelector("#countdown");
 // start quiz button
 var startBtn = document.querySelector("#start-button");
-// welcome container
+// start quiz container
 var quizStartEl = document.querySelector("#start-quiz");
 // quiz questions container
 var quizQuestionsEl = document.querySelector("#quiz-questions");
@@ -18,28 +18,23 @@ var choiceBtns = document.querySelectorAll(".choice");
 var feedbackText = document.querySelector("#feedback-text");
 // game over container
 var quizCompleteEl = document.querySelector("#complete");
-// display final score
+// final score text
 var finalScoreEl = document.querySelector("#final-score");
 // submit score button
 var submitScoreBtn = document.querySelector("#submit-score");
 // user-entered initials
 var userInitialsInput = document.querySelector("#initials");
-// // clear high scores local storage
-// var clearHighscoresBtn = document.querySelector("#clear-button");
-// // take quiz again button
-// var repeatQuizBtn = document.querySelector("#repeat-quiz");
-// // high scores list element
-// var highScoreListEl = document.querySelector("#highscores-list");
 
 // correct answer for current question
 var correctAnswer;
-// button selected by user
+// answer choice button selected by user
 var userAnswer;
 // index of questions
 var index;
+// timer interval
 var timerInterval;
+//calculated score
 var finalScore;
-
 // total time reamining to complete quiz
 var timeLeft;
 // starting score
@@ -151,62 +146,42 @@ function calcFinalScore() {
   console.log("final score: " + finalScore);
 }
 
+var allHighScores;
+
 function saveScore() {
   console.log("saving high score");
   var initials = userInitialsInput.value;
 
-  var userScore = {
+  var userScoreObj = {
     initials: initials,
     score: finalScore,
   };
 
-  console.log(userScore);
+  console.log(userScoreObj);
 
-  var allHighScores = localStorage.getItem("storedHighScore");
+  // if (typeof allHighScores === "undefined" || allHighScores === null) {
+  //   localStorage.setItem("storedScoreKey", JSON.stringify([userScoreObj]));
+  // } else {
+  //   storedScoreKey = JSON.parse(allHighScores);
+  //   storedScoreKey.push(userScoreObj);
+  //   localStorage.setItem("storedScoreKey", JSON.stringify(storedScoreKey));
+  // }
+
+  var allHighScores = localStorage.getItem("storedScoreKey");
   console.log(allHighScores);
 
   if (allHighScores == null) {
-    localStorage.setItem("storedHighScore", JSON.stringify([userScore]));
+    localStorage.setItem("storedScoreKey", JSON.stringify([userScoreObj]));
     console.log(allHighScores);
   } else {
-    storedHighScore = JSON.parse(allHighScores);
-    storedHighScore.push(userScore);
-    localStorage.setItem("storedHighScore", JSON.stringify(storedHighScore));
+    storedScoreKey = JSON.parse(allHighScores);
+    storedScoreKey.push(userScoreObj);
+    localStorage.setItem("storedScoreKey", JSON.stringify(storedScoreKey));
   }
 
+  // go to high scores page
   window.location.href = "highscores.html";
-
-  // window.onload.renderHighScores();
-
-  // renderHighScores();
 }
-
-// function renderHighScores() {
-//   console.log("rendering high scores");
-//   var allHighScores = localStorage.getItem("storedHighScore");
-
-//   allHighScores = JSON.parse(allHighScores);
-//   console.log("Stored Scores: " + allHighScores);
-
-//   var highScoreList = document.createElement("ol");
-
-//   for (var i = 0; i < allHighScores.length; i++) {
-//     var scoreListItem = document.createElement("li");
-//     scoreListItem.setAttribute("class", "list-group-item text-center");
-
-//     scoreListItem.innerHTML =
-//       allHighScores[i].initials + " | " + allHighScores[i].score;
-
-//     highScoreList.appendChild(scoreListItem);
-//   }
-//   highScoreListEl.appendChild(highScoreList);
-//   return;
-// }
-
-// function clearScores() {
-//   localStorage.removeItem("highScoreList");
-//   renderHighScores();
-// }
 
 // EVENT LISTENERS
 // initialize on start
@@ -219,14 +194,7 @@ for (var choiceBtn of choiceBtns) {
   choiceBtn.addEventListener("click", checkAnswer);
 }
 
+// submit score button takes you to high score page
 if (submitScoreBtn) {
   submitScoreBtn.addEventListener("click", saveScore);
 }
-
-// if (repeatQuizBtn) {
-//   repeatQuizBtn.addEventListener("click", init);
-// }
-
-// if (clearHighscoresBtn) {
-//   clearHighscoresBtn.addEventListener("click", clearScores);
-// }
