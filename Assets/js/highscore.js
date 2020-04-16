@@ -18,12 +18,19 @@ function renderHighScores() {
 
   // create an alert div for each user score stored in local storage
   for (var i = 0; i < allHighScores.length; i++) {
+    var row = document.createElement("div");
+    row.setAttribute("class", "row justify-content-center");
+
     var highscoreItem = document.createElement("div");
-    highscoreItem.setAttribute("class", "alert alert-dark text-center");
+    highscoreItem.setAttribute(
+      "class",
+      "alert col-md-6 justify-content-center alert-dark text-center"
+    );
     highscoreItem.innerHTML =
       allHighScores[i].initials + " | " + allHighScores[i].score;
 
-    highScoreListEl.appendChild(highscoreItem);
+    row.appendChild(highscoreItem);
+    highScoreListEl.appendChild(row);
   }
 
   return;

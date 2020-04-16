@@ -1,16 +1,33 @@
 body {
   font-family: "Quicksand", sans-serif;
+  background-image: url("https://i.ibb.co/7CV1YWH/paintpalette.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom left;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-size: 50%;
+  }
 }
 
 #feedback-text {
   font-style: italic;
-  font-weight: bolder;
+  font-weight: 900;
   margin-top: 30px;
 }
 
 #countdown {
   padding-right: 40px;
 }
+
 #greeting {
   font-size: 3em;
+}
+
+.code {
+  background-color: lightgray;
+  padding: 20px 10px 20px 10px;
+  margin: 10px;
 }

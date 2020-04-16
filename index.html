@@ -27,9 +27,9 @@
           View Highscores
         </button>
       </form>
-      <div class="text-light" id="timer">
-        <p>Time: <span id="countdown">75</span></p>
-      </div>
+      <span class="text-light navbar-text" id="timer">
+        Time: <span id="countdown">75</span>
+      </span>
     </nav>
 
     <!----------------------------------WELCOME, INSTRUCTIONS, AND START QUIZ-------------------------------->
@@ -38,20 +38,23 @@
       id="start-quiz"
       style="max-width: 700px;"
     >
-      <div class="row m-2">
+      <div class="row">
         <div class="col text-center">
-          <h1 id="greeting">Welcome to da quiz!</h1>
+          <h1 id="greeting">The Joy of Coding Quiz</h1>
         </div>
       </div>
 
-      <div class="row m-2">
+      <div class="row">
         <div class="col text-center">
-          <p id="intro">Let's do this</p>
+          <p id="intro">
+            You're obviously a Bob Ross fan, but how well do you know
+            Javascript?
+          </p>
         </div>
       </div>
       <div class="row m-2">
         <div class="col text-center">
-          <button type="button" class="btn btn-dark" id="start-button">
+          <button type="button" class="btn-lg btn-dark" id="start-button">
             Start
           </button>
         </div>
@@ -61,22 +64,23 @@
     <!----------------------------------QUESTIONS AND CHOICES-------------------------------->
     <div class="container p-4 mt-5 mx-auto d-none" id="quiz-questions">
       <div class="row">
-        <div class="col-md">
-          <h1 class="text-center" id="question-text"></h1>
-          <div class="row">
-            <div class="col-md">
-              <div
-                class="text-center mt-5 d-flex flex-column"
-                id="question-choices"
-              >
-                <button class="choice btn btn-dark m-2" id="a"></button>
-                <button class="choice btn btn-dark m-2" id="b"></button>
-                <button class="choice btn btn-dark m-2" id="c"></button>
-                <button class="choice btn btn-dark m-2" id="d"></button>
-              </div>
-              <div class="text-center" id="feedback-text"></div>
-            </div>
-          </div>
+        <div class="col-12 text-center">
+          <h1 class="mb-4" id="question-text"></h1>
+          <code class="code mb-4 d-none"></code>
+        </div>
+      </div>
+      <div class="row mt-3 justify-content-center">
+        <div class="col-6 text-center flex-column d-flex">
+          <button class="choice btn btn-dark m-2" id="a"></button>
+          <button class="choice btn btn-dark m-2" id="b"></button>
+          <button class="choice btn btn-dark m-2" id="c"></button>
+          <button class="choice btn btn-dark m-2" id="d"></button>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-6 text-center">
+          <hr />
+          <span id="feedback-text"></span>
         </div>
       </div>
     </div>
@@ -84,23 +88,21 @@
     <!----------------------------------FINAL SCORE AND STORE INITIALS IN HIGH SCORES-------------------------------->
     <div class="container d-none p-4 mt-5 mx-auto" id="complete">
       <div class="row">
-        <div class="col-md text-center">
-          <h1 class="text-center">All Done!</h1>
-          <h2 class="text-center">
+        <div class="col text-center">
+          <h1>All Done!</h1>
+          <h2>
             Your final score is:
-            <p id="final-score"></p>
+            <span id="final-score"></span>
           </h2>
         </div>
       </div>
       <div class="row">
-        <div class="col-md text-center">
+        <div class="col text-center">
           <label for="initials">Enter initials:</label>
           <input type="text" id="initials" />
-          <!-- <a href="highscores.html"> -->
           <button class="btn btn-danger" id="submit-score">
             Submit
           </button>
-          <!-- </a> -->
         </div>
       </div>
     </div>

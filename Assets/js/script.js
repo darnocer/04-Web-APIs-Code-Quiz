@@ -10,8 +10,8 @@ var quizStartEl = document.querySelector("#start-quiz");
 var quizQuestionsEl = document.querySelector("#quiz-questions");
 // question text
 var questionText = document.querySelector("#question-text");
-// div for question choices buttons
-var questionChoices = document.querySelector("#question-choices");
+// to display formatted code in questions
+var codeText = document.querySelector(".code");
 // choice buttons
 var choiceBtns = document.querySelectorAll(".choice");
 // answer feedback (correct vs incorrect)
@@ -43,20 +43,12 @@ var score;
 var correct = 15;
 // subtracted from time for incorrect answer
 var penalty = 15;
+// subtracted from score for incorrect answers
+var incorrect = 15;
 // possible options for each question (corresponds to button IDs)
 var options = ["a", "b", "c", "d"];
 
-// INITIALIZE
-// when start button clicked, replace intro container with questions and start timer
-function init() {
-  index = 0;
-  timeLeft = 75;
-  score = 0;
-  finalScore = 0;
-  quizStartEl.classList.remove("d-none");
-  quizQuestionsEl.classList.add("d-none");
-}
-
+// when start button clicked, initialize and hide intro container and display questions container
 function startQuiz() {
   init();
   console.log("start button clicked");
@@ -66,11 +58,20 @@ function startQuiz() {
   startTimer();
 }
 
-// TIMER COUNTDOWN
+// reset time and score
+function init() {
+  index = 0;
+  timeLeft = 75;
+  score = 0;
+  finalScore = 0;
+  penaltyCount = 0;
+  quizStartEl.classList.remove("d-none");
+  quizQuestionsEl.classList.add("d-none");
+}
+
+// Start counting down the timer each second
 function startTimer() {
-  // diplay time left
   countdownEl.textContent = timeLeft;
-  // set interval to decrease each second
   timerInterval = setInterval(function () {
     timeLeft--;
     countdownEl.textContent = timeLeft;
@@ -85,12 +86,23 @@ function startTimer() {
 function displayQuestions() {
   if (index < myQuestions.length) {
     questionText.textContent = myQuestions[index].question;
+
+    // for code text
+    if (myQuestions[index].code === "") {
+      codeText.classList.add("d-none");
+    }
+
+    if (myQuestions[index].code !== "") {
+      codeText.classList.remove("d-none");
+      codeText.textContent = myQuestions[index].code;
+    }
     displayChoices();
   } else {
     gameOver();
   }
 }
 
+// populate buttons with question choices
 function displayChoices() {
   console.log("displaying choices");
   for (j = 0; j < options.length; j++) {
@@ -98,42 +110,37 @@ function displayChoices() {
   }
 }
 
+// compare user answer to correct answer
 function checkAnswer(correctAnswer, userAnswer) {
-  console.log("checking answer");
   correctAnswer = myQuestions[index].answer;
-  console.log("Correct Answer: " + correctAnswer);
   userAnswer = this.id;
-  console.log("User Answer: " + userAnswer);
   if (userAnswer === correctAnswer) {
     answerCorrect();
   } else {
     answerIncorrect();
   }
-  console.log(score);
+  // go to next question
   index++;
   displayQuestions();
 }
 
-// displays "correct" in green text and increases score
+// displays green text and increases score
 function answerCorrect() {
-  console.log("correct!");
   feedbackText.setAttribute("style", "color: green");
-  feedbackText.textContent = "Correct!";
+  feedbackText.textContent = "Correct! Isn't that fantastic?";
   score = score + correct;
 }
 
-// displays "incorrect" in red text and subtracts time penalty from remaining time
+// displays red text and subtracts time and score penalty
 function answerIncorrect() {
-  console.log("incorrect!");
   feedbackText.setAttribute("style", "color: red");
-  feedbackText.textContent = "Incorrect!";
+  feedbackText.textContent = "Not all mistakes are happy accidents...";
+  score = score - incorrect;
   timeLeft = timeLeft - penalty;
 }
 
-// when timer runs out
+// when timer runs out or when last question is answered
 function gameOver() {
-  console.log("game over!");
-  console.log("stop timer");
   clearInterval(timerInterval);
   quizQuestionsEl.classList.add("d-none");
   quizCompleteEl.classList.remove("d-none");
@@ -141,15 +148,14 @@ function gameOver() {
   finalScoreEl.textContent = finalScore;
 }
 
+// 15 points for each correct, -15 points for incorrect; plus remaining time
 function calcFinalScore() {
   finalScore = score + timeLeft;
-  console.log("final score: " + finalScore);
 }
 
-var allHighScores;
+// var allHighScores;
 
 function saveScore() {
-  console.log("saving high score");
   var initials = userInitialsInput.value;
 
   var userScoreObj = {
@@ -157,22 +163,10 @@ function saveScore() {
     score: finalScore,
   };
 
-  console.log(userScoreObj);
-
-  // if (typeof allHighScores === "undefined" || allHighScores === null) {
-  //   localStorage.setItem("storedScoreKey", JSON.stringify([userScoreObj]));
-  // } else {
-  //   storedScoreKey = JSON.parse(allHighScores);
-  //   storedScoreKey.push(userScoreObj);
-  //   localStorage.setItem("storedScoreKey", JSON.stringify(storedScoreKey));
-  // }
-
   var allHighScores = localStorage.getItem("storedScoreKey");
-  console.log(allHighScores);
 
   if (allHighScores == null) {
     localStorage.setItem("storedScoreKey", JSON.stringify([userScoreObj]));
-    console.log(allHighScores);
   } else {
     storedScoreKey = JSON.parse(allHighScores);
     storedScoreKey.push(userScoreObj);
