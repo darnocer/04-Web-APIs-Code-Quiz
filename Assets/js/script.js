@@ -14,7 +14,7 @@ var questionText = document.querySelector("#question-text");
 var codeEl = document.querySelector("#code");
 // to display formatted code in questions
 var codeText = document.querySelector(".code");
-// choice buttons
+// choice buttons for each question
 var choiceBtns = document.querySelectorAll(".choice");
 // answer feedback (correct vs incorrect)
 var feedbackText = document.querySelector("#feedback-text");
@@ -107,7 +107,6 @@ function displayQuestions() {
 
 // populate buttons with question choices
 function displayChoices() {
-  console.log("displaying choices");
   for (j = 0; j < options.length; j++) {
     choiceBtns[j].textContent = myQuestions[index].choices[options[j]];
   }
@@ -142,7 +141,7 @@ function answerIncorrect() {
   timeLeft = timeLeft - penalty;
 }
 
-// when timer runs out or when last question is answered
+// when timer runs out or when last question is answered, show final score
 function gameOver() {
   clearInterval(timerInterval);
   quizQuestionsEl.classList.add("d-none");
@@ -156,8 +155,7 @@ function calcFinalScore() {
   finalScore = score + timeLeft;
 }
 
-// var allHighScores;
-
+// saves score in local stroage with user's initials
 function saveScore() {
   var initials = userInitialsInput.value;
 
@@ -181,7 +179,7 @@ function saveScore() {
 }
 
 // EVENT LISTENERS
-// initialize on start
+// start button
 startBtn.addEventListener("click", startQuiz);
 
 // any time an answer button is selected
@@ -189,5 +187,5 @@ for (var choiceBtn of choiceBtns) {
   choiceBtn.addEventListener("click", checkAnswer);
 }
 
-// submit score button takes you to high score page
+// submit score button to high scores page
 submitScoreBtn.addEventListener("click", saveScore);

@@ -1,6 +1,6 @@
 // clear high scores local storage
 var clearHighscoresBtn = document.querySelector("#clear-button");
-// take quiz again button
+// back to start buttons
 var repeatQuizBtn = document.querySelector("#repeat-quiz");
 // high scores list element
 var highScoreListEl = document.querySelector("#highscores-list");
