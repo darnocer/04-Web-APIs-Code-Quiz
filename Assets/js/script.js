@@ -10,6 +10,8 @@ var quizStartEl = document.querySelector("#start-quiz");
 var quizQuestionsEl = document.querySelector("#quiz-questions");
 // question text
 var questionText = document.querySelector("#question-text");
+// code text container
+var codeEl = document.querySelector("#code");
 // to display formatted code in questions
 var codeText = document.querySelector(".code");
 // choice buttons
@@ -87,14 +89,15 @@ function displayQuestions() {
   if (index < myQuestions.length) {
     questionText.textContent = myQuestions[index].question;
 
-    // for code text
+    // to display code text if it is a part of the question
     if (myQuestions[index].code === "") {
-      codeText.classList.add("d-none");
+      // hide the code div if code is not a part of the question
+      codeEl.classList.add("d-none");
     }
 
     if (myQuestions[index].code !== "") {
-      codeText.classList.remove("d-none");
-      codeText.textContent = myQuestions[index].code;
+      codeEl.classList.remove("d-none");
+      codeText.innerHTML = myQuestions[index].code;
     }
     displayChoices();
   } else {
@@ -179,9 +182,7 @@ function saveScore() {
 
 // EVENT LISTENERS
 // initialize on start
-if (startBtn) {
-  startBtn.addEventListener("click", startQuiz);
-}
+startBtn.addEventListener("click", startQuiz);
 
 // any time an answer button is selected
 for (var choiceBtn of choiceBtns) {
@@ -189,6 +190,4 @@ for (var choiceBtn of choiceBtns) {
 }
 
 // submit score button takes you to high score page
-if (submitScoreBtn) {
-  submitScoreBtn.addEventListener("click", saveScore);
-}
+submitScoreBtn.addEventListener("click", saveScore);

@@ -12,7 +12,7 @@ var myQuestions = [
   },
   {
     question: "The following code is an example of what?",
-    code: "\n var hello = function() {\n console.log('Hello World');\n };",
+    code: "var hello = function() {<br/> console.log('Hello World') };",
     choices: {
       a: "Function Expression",
       b: "Function Declaration",
@@ -22,13 +22,38 @@ var myQuestions = [
     answer: "a",
   },
   {
-    question: "this is question #3",
-    code: "",
+    question: "What will the console.log outputs of the following code be?",
+    code:
+      "var myVar = 1; <br/> function b() { <br/> console.log(myVar); } <br/> function a() { <br/> var myVar = 2; <br/> b();} <br/> a();",
     choices: {
-      a: "ANSWER A",
-      b: "ANSWER B",
-      c: "ANSWER C",
-      d: "CORRECT ANSWER",
+      a: "1, 1",
+      b: "2, 1",
+      c: "2, 2",
+      d: "1, 2",
+    },
+    answer: "d",
+  },
+
+  {
+    question: "What is the result of the following code?",
+    code: "NaN === NaN",
+    choices: {
+      a: "true",
+      b: "false",
+      c: "undefined",
+      d: "error",
+    },
+    answer: "b",
+  },
+
+  {
+    question: "What is the result of the following code?",
+    code: "typeof function() {}",
+    choices: {
+      a: "null",
+      b: "object",
+      c: "undefined",
+      d: "function",
     },
     answer: "d",
   },

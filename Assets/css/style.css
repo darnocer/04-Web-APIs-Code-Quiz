@@ -26,8 +26,29 @@ body {
   font-size: 3em;
 }
 
-.code {
-  background-color: lightgray;
+#code {
   padding: 20px 10px 20px 10px;
   margin: 10px;
+  background-color: lightgray;
+  text-align: left;
+}
+
+#a:hover {
+  background-color: #db0000;
+  border-color: #db0000;
+}
+
+#b:hover {
+  background-color: #f2e700;
+  border-color: #f2e700;
+}
+
+#c:hover {
+  background-color: #22b14c;
+  border-color: #22b14c;
+}
+
+#d:hover {
+  background-color: #3f48cc;
+  border-color: #3f48cc;
 }
