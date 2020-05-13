@@ -1,8 +1,29 @@
 # 04-Web-APIs-Code-Quiz
 
-We were asked to build a quiz with the below criteria.
+## Deployed Site:
 
-This quiz is a simple quiz with five questions about javascript. You have 75 seconds to complte the quiz. Answer correctly and score 15 points. Answer the question incorrectly and lose 15 points, and also 15 seconds from your time. You final score takes into account how many seconds were remaining in the game - the faster you finish, the higher your score. Save your score to the high score board.
+https://darnocer.github.io/04-Web-APIs-Code-Quiz/
+
+## Description
+
+This quiz is a simple Bob Ross-themed quiz with five questions about Javascript.
+
+The rules for the quiz are as follows:
+
+- Click "Start" to begin the timer and go to the first question
+
+* You have 75 seconds to answer 5 multiple choice questions about js
+
+- Answer the question correctly and score 15 points.
+- Answer the question incorrectly and lose 15 points and also 15 seconds from your time.
+- Time matters: You final score is your net score plus the remaining time.
+- Enter your initials to save your score to the high scores board
+
+This application uses `localStorage` to store and retrieve high scores.
+
+![codequiz](./Assets/images/codequiz.png)
+
+![codequiz](./Assets/images/codequiz2.png)
 
 ## Acceptance Criteria
 
