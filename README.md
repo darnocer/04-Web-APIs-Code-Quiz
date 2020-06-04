@@ -1,14 +1,22 @@
-# 04-Web-APIs-Code-Quiz
+# Javascript Code Quiz
 
-## Deployed Site:
+![last commit](https://img.shields.io/github/last-commit/darnocer/Web-APIs-Code-Quiz?style=flat-square) ![license badge](https://img.shields.io/github/license/darnocer/Web-APIs-Code-Quiz?style=flat-square)
 
-https://darnocer.github.io/Web-APIs-Code-Quiz/
+### URL: https://darnocer.github.io/Web-APIs-Code-Quiz/
 
 ## Description
 
 This quiz is a simple Bob Ross-themed quiz with five questions about Javascript.
 
-The rules for the quiz are as follows:
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#Credits)
+- [Tests](#tests)
+- [Questions](#questions)
+
+## Usage
 
 - Click "Start" to begin the timer and go to the first question
 - You have 75 seconds to answer 5 multiple choice questions about js
@@ -17,29 +25,20 @@ The rules for the quiz are as follows:
 - Time matters: You final score is your net score plus the remaining time.
 - Enter your initials to save your score to the high scores board
 
-![codequiz](./Assets/images/codequiz.png)
+![demo](./Assets/images/demo.gif)
 
-Receive instant feedback as to if the question was answered correctly or not.
+## Credits
 
-![codequiz](./Assets/images/codequiz2.png)
+- [Bootstrap](https://getbootstrap.com/)
 
-This application uses `localStorage` to store and retrieve high scores.
-Click "Clear All" to clear all scores from `localStorage`
+## Questions?
 
-![codequiz](./Assets/images/codequiz3.png)
+Contact me at [darian.nocera26@gmail.com](mailto:darian.nocera26@gmail.com)
 
-## Acceptance Criteria
+or [![Follow on Github](https://img.shields.io/github/followers/darnocer?label=Follow&style=social)](http://www.github.com/darnocer)
 
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
-```
+Copyright © 2020 [Darian Nocera](http://www.github.com/darnocer)
+
+---
+
+##### _Created with [darnocer's README generator](https://github.com/darnocer/Node.js-and-ES6-README-Generator)_ 👽
