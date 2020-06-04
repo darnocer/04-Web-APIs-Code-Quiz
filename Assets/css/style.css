@@ -1,9 +1,10 @@
 body {
   font-family: "Quicksand", sans-serif;
-  background-image: url("https://i.ibb.co/7CV1YWH/paintpalette.png");
+  background-image: url("../images/bob.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: bottom left;
+  background-size: 30%;
 }
 
 @media only screen and (max-width: 600px) {
@@ -24,6 +25,7 @@ body {
 
 #greeting {
   font-size: 3em;
+  color: red;
 }
 
 #code {
@@ -31,6 +33,10 @@ body {
   margin: 10px;
   background-color: lightgray;
   text-align: left;
+}
+
+#question-text {
+  color: purple;
 }
 
 #a:hover {
