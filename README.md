@@ -6,14 +6,14 @@
 
 ## Description
 
-This quiz is a simple Bob Ross-themed quiz with five questions about Javascript.
+This application is a simple Bob Ross-themed quiz with five questions about vanilla Javascript written in vanilla Javascript.
+Utilizes `localStorage` to save High Scores.
 
 ## Table of Contents
 
-- [Installation](#installation)
 - [Usage](#usage)
+- [Future Enhancements](#future-enhancements)
 - [Credits](#Credits)
-- [Tests](#tests)
 - [Questions](#questions)
 
 ## Usage
@@ -26,6 +26,10 @@ This quiz is a simple Bob Ross-themed quiz with five questions about Javascript.
 - Enter your initials to save your score to the high scores board
 
 ![demo](./Assets/images/demo.gif)
+
+## Future Enhancements
+
+_No further development is planned at this time_
 
 ## Credits
 
