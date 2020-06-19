@@ -1,12 +1,13 @@
 # Javascript Code Quiz
 
-![last commit](https://img.shields.io/github/last-commit/darnocer/Web-APIs-Code-Quiz?style=flat-square) ![license badge](https://img.shields.io/github/license/darnocer/Web-APIs-Code-Quiz?style=flat-square)
+![last commit](https://img.shields.io/github/last-commit/darnocer/Web-APIs-Code-Quiz?style=flat-square)
 
 ### URL: https://darnocer.github.io/Web-APIs-Code-Quiz/
 
 ## Description
 
 This application is a simple Bob Ross-themed quiz with five questions about vanilla Javascript written in vanilla Javascript.
+
 Utilizes `localStorage` to save High Scores.
 
 ## Table of Contents
