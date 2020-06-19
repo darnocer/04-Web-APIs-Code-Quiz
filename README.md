@@ -1,4 +1,4 @@
-# Javascript Code Quiz
+# The Joy of Coding Quiz
 
 ![last commit](https://img.shields.io/github/last-commit/darnocer/Web-APIs-Code-Quiz?style=flat-square)
 
